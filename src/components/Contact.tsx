@@ -62,7 +62,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
-                  <p className="text-gray-600">+91 95810 55328</p>
+                  <p className="text-gray-600">+91 9398360804</p>
                   <p className="text-gray-600">Mon-Fri: 9AM - 6PM</p>
                 </div>
               </div>
@@ -73,8 +73,8 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
-                  <p className="text-gray-600">info@cravininteriors.com</p>
-                  <p className="text-gray-600">support@cravininteriors.com</p>
+                  <p className="text-gray-600">cravininteriors@gmail.com</p>
+                  
                 </div>
               </div>
 
@@ -84,8 +84,8 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">Office</h4>
-                  <p className="text-gray-600">123 Design Street</p>
-                  <p className="text-gray-600">New York, NY 10001</p>
+                  <p className="text-gray-600">Flat-202, Vijaya Durga Towers, Mahatma Gandhi Inner Ring Rd, Reddypalem
+                 Guntur, Andhra Pradesh 522509</p>
                 </div>
               </div>
             </div>

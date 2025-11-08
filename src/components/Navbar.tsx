@@ -26,7 +26,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0">
             <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
-              Cravin <span className="text-amber-600">Interiors</span>
+              Carvin <span className="text-amber-600">Interiors</span>
             </h1>
           </div>
 

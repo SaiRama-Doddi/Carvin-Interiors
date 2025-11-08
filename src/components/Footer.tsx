@@ -16,7 +16,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div>
             <h3 className="text-2xl font-bold text-white mb-4">
-              Cravin <span className="text-amber-600">Interiors</span>
+              Carvin <span className="text-amber-600">Interiors</span>
             </h3>
             <p className="text-gray-400 mb-6 leading-relaxed">
               Transforming spaces into beautiful, functional environments that inspire and delight.

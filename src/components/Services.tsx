@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type SetStateAction } from 'react';
 import { services } from '../data/services';
 import {
   Home,
@@ -11,6 +11,7 @@ import {
   ChevronLeft,
   ChevronRight
 } from 'lucide-react';
+import { ChevronDown, ChevronUp } from "lucide-react"; 
 
 // ✅ Explicit icon mapping — all icons exist in lucide-react
 const iconMap: Record<string, React.ElementType> = {
@@ -25,6 +26,17 @@ const iconMap: Record<string, React.ElementType> = {
 const Services = () => {
   const [selectedService, setSelectedService] = useState<number | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+// Track open feature per selected service
+const [openFeatureByService, setOpenFeatureByService] = useState<Record<number, number | null>>({});
+
+const toggleFeature = (serviceId: number, index: number) => {
+  setOpenFeatureByService((prev) => ({
+    ...prev,
+    [serviceId]: prev[serviceId] === index ? null : index,
+  }));
+};
+
+
 
   const handleLearnMore = (serviceId: number) => {
     setSelectedService(serviceId);
@@ -104,7 +116,7 @@ const Services = () => {
                         key={index}
                         className="bg-gray-50 px-4 py-2 rounded-lg text-sm text-gray-700 font-medium text-center hover:bg-amber-50 hover:text-amber-700 transition-colors duration-300"
                       >
-                        {feature}
+                        {feature.name}
                       </div>
                     ))}
                   </div>
@@ -195,22 +207,54 @@ const Services = () => {
                 </div>
               </div>
 
-              <div className="border-t border-gray-200 pt-8">
-                <h4 className="text-2xl font-bold text-gray-900 mb-6">
-                  What's Included
-                </h4>
-                <div className="grid md:grid-cols-2 gap-4">
-                  {selectedServiceData.features.map((feature, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center gap-3 bg-gradient-to-r from-amber-50 to-orange-50 p-4 rounded-xl"
-                    >
-                      <div className="w-2 h-2 bg-amber-600 rounded-full"></div>
-                      <span className="text-gray-800 font-medium">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+       <div className="border-t border-gray-200 pt-8">
+  <h4 className="text-2xl font-bold text-gray-900 mb-6">What's Included</h4>
+
+<div className="grid grid-cols-2 sm:grid-cols-1 gap-4 md:gap-6">
+  {selectedServiceData.features.map((feature, index) => {
+    const serviceId = selectedServiceData.id;
+    const isOpen = openFeatureByService[serviceId] === index;
+
+    return (
+      <div
+        key={index}
+        className={`transition-all duration-300 bg-gradient-to-r from-amber-50 to-orange-50 
+        p-4 sm:p-5 md:p-6 rounded-2xl shadow hover:shadow-md border border-amber-100 
+        ${isOpen ? "ring-2 ring-amber-400" : ""}`}
+      >
+        <button
+          onClick={() => toggleFeature(serviceId, index)}
+          className="flex justify-between items-center w-full text-left"
+        >
+          <div className="flex items-center gap-3">
+            <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-amber-600 rounded-full"></div>
+            <span className="text-gray-800 font-medium text-sm sm:text-base md:text-lg">
+              {feature.name}
+            </span>
+          </div>
+
+          {isOpen ? (
+            <ChevronUp className="text-amber-600" size={20} />
+          ) : (
+            <ChevronDown className="text-amber-600" size={20} />
+          )}
+        </button>
+
+        {isOpen && (
+          <div
+            className="mt-3 sm:mt-4 pl-5 sm:pl-6 text-gray-700 text-sm sm:text-base border-l-2 border-amber-400 
+            animate-fadeIn"
+          >
+            {feature.description}
+          </div>
+        )}
+      </div>
+    );
+  })}
+</div>
+
+</div>
+
             </div>
           </div>
         </div>
