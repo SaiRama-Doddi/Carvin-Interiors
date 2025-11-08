@@ -76,5 +76,44 @@ export const services = [
       'https://images.pexels.com/photos/2098085/pexels-photo-2098085.jpeg?auto=compress&cs=tinysrgb&w=800',
       'https://images.pexels.com/photos/1454804/pexels-photo-1454804.jpeg?auto=compress&cs=tinysrgb&w=800'
     ]
+  },
+  {
+    id: 7,
+    title: 'Epoxy Flooring',
+    icon: 'Layers3',
+    description: 'Durable, elegant, and seamless epoxy flooring solutions for modern interiors',
+    features: ['Industrial Floors', 'Garage Floors', '3D Epoxy Designs', 'Anti-slip Finishes'],
+    images: [
+      'https://images.pexels.com/photos/3843287/pexels-photo-3843287.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/949942/pexels-photo-949942.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/848616/pexels-photo-848616.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/3756372/pexels-photo-3756372.jpeg?auto=compress&cs=tinysrgb&w=800'
+    ]
+  },
+  {
+    id: 8,
+    title: 'Painting Services',
+    icon: 'Brush',
+    description: 'Professional painting services delivering high-quality finishes with precision and care',
+    features: ['Interior & Exterior Painting', 'Texture Finishes', 'Wall Art Design', 'Waterproof Coatings'],
+    images: [
+      'https://images.pexels.com/photos/1573826/pexels-photo-1573826.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/1573827/pexels-photo-1573827.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/1669754/pexels-photo-1669754.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/208147/pexels-photo-208147.jpeg?auto=compress&cs=tinysrgb&w=800'
+    ]
+  },
+  {
+    id: 9,
+    title: 'False Ceiling Design',
+    icon: 'Layout',
+    description: 'Modern and aesthetic false ceiling designs enhancing elegance and lighting',
+    features: ['POP Ceilings', 'Gypsum Boards', 'LED Lighting Integration', 'Acoustic Ceilings'],
+    images: [
+      'https://images.pexels.com/photos/1457841/pexels-photo-1457841.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/333591/pexels-photo-333591.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/1457844/pexels-photo-1457844.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/534172/pexels-photo-534172.jpeg?auto=compress&cs=tinysrgb&w=800'
+    ]
   }
 ];

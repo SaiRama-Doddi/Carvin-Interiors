@@ -1,8 +1,19 @@
 import { useState } from 'react';
-import { Home, Briefcase, Star, Grid3x3, Paintbrush, Layers, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { services } from '../data/services';
+import {
+  Home,
+  Briefcase,
+  Star,
+  Grid3x3,
+  Paintbrush,
+  Layers,
+  X,
+  ChevronLeft,
+  ChevronRight
+} from 'lucide-react';
 
-const iconMap = {
+// ✅ Explicit icon mapping — all icons exist in lucide-react
+const iconMap: Record<string, React.ElementType> = {
   Home,
   Briefcase,
   Star,
@@ -26,24 +37,27 @@ const Services = () => {
   };
 
   const nextImage = () => {
-    const service = services.find(s => s.id === selectedService);
+    const service = services.find((s) => s.id === selectedService);
     if (service) {
       setCurrentImageIndex((prev) => (prev + 1) % service.images.length);
     }
   };
 
   const prevImage = () => {
-    const service = services.find(s => s.id === selectedService);
+    const service = services.find((s) => s.id === selectedService);
     if (service) {
-      setCurrentImageIndex((prev) => (prev - 1 + service.images.length) % service.images.length);
+      setCurrentImageIndex(
+        (prev) => (prev - 1 + service.images.length) % service.images.length
+      );
     }
   };
 
-  const selectedServiceData = services.find(s => s.id === selectedService);
+  const selectedServiceData = services.find((s) => s.id === selectedService);
 
   return (
     <section id="services" className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold text-gray-900 mb-4">
             What We <span className="text-amber-600">Offer</span>
@@ -53,15 +67,17 @@ const Services = () => {
           </p>
         </div>
 
+        {/* Service Cards */}
         <div className="grid md:grid-cols-2 gap-8">
           {services.map((service) => {
-            const IconComponent = iconMap[service.icon as keyof typeof iconMap];
+            const IconComponent = iconMap[service.icon] || Layers; // fallback
 
             return (
               <div
                 key={service.id}
                 className="group relative overflow-hidden rounded-3xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500"
               >
+                {/* Image Section */}
                 <div className="relative h-72 overflow-hidden">
                   <img
                     src={service.images[0]}
@@ -80,6 +96,7 @@ const Services = () => {
                   </div>
                 </div>
 
+                {/* Features + Button */}
                 <div className="p-6">
                   <div className="grid grid-cols-2 gap-3 mb-6">
                     {service.features.map((feature, index) => (
@@ -105,9 +122,11 @@ const Services = () => {
         </div>
       </div>
 
+      {/* Modal */}
       {selectedService && selectedServiceData && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4">
           <div className="relative max-w-6xl w-full bg-white rounded-3xl overflow-hidden shadow-2xl max-h-[90vh] overflow-y-auto">
+            {/* Close Button */}
             <button
               onClick={closeModal}
               className="absolute top-4 right-4 z-10 bg-white/95 backdrop-blur-sm p-3 rounded-full hover:bg-gray-100 transition-colors duration-300 shadow-lg"
@@ -115,6 +134,7 @@ const Services = () => {
               <X size={24} className="text-gray-900" />
             </button>
 
+            {/* Image Carousel */}
             <div className="relative h-96 md:h-[500px] bg-gray-900">
               <img
                 src={selectedServiceData.images[currentImageIndex]}
@@ -122,6 +142,7 @@ const Services = () => {
                 className="w-full h-full object-cover"
               />
 
+              {/* Prev / Next buttons */}
               <button
                 onClick={prevImage}
                 className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/95 backdrop-blur-sm p-3 rounded-full hover:bg-white transition-all duration-300 shadow-lg"
@@ -136,6 +157,7 @@ const Services = () => {
                 <ChevronRight size={24} className="text-gray-900" />
               </button>
 
+              {/* Dots */}
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
                 {selectedServiceData.images.map((_, index) => (
                   <button
@@ -151,13 +173,14 @@ const Services = () => {
               </div>
             </div>
 
+            {/* Service Details */}
             <div className="p-8 md:p-12">
               <div className="flex items-start gap-6 mb-6">
                 {(() => {
-                  const IconComponent = iconMap[selectedServiceData.icon as keyof typeof iconMap];
+                  const Icon = iconMap[selectedServiceData.icon] || Layers;
                   return (
                     <div className="bg-gradient-to-br from-amber-100 to-orange-100 p-4 rounded-2xl flex-shrink-0">
-                      <IconComponent className="text-amber-600" size={40} />
+                      <Icon className="text-amber-600" size={40} />
                     </div>
                   );
                 })()}
@@ -173,7 +196,9 @@ const Services = () => {
               </div>
 
               <div className="border-t border-gray-200 pt-8">
-                <h4 className="text-2xl font-bold text-gray-900 mb-6">What's Included</h4>
+                <h4 className="text-2xl font-bold text-gray-900 mb-6">
+                  What's Included
+                </h4>
                 <div className="grid md:grid-cols-2 gap-4">
                   {selectedServiceData.features.map((feature, index) => (
                     <div
@@ -186,15 +211,6 @@ const Services = () => {
                   ))}
                 </div>
               </div>
-
-             {/*  <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                <button className="flex-1 bg-gradient-to-r from-amber-600 to-orange-600 text-white py-4 rounded-xl font-semibold hover:from-amber-700 hover:to-orange-700 transition-all duration-300 shadow-md hover:shadow-xl">
-                  Get Started with This Service
-                </button>
-                <button className="flex-1 border-2 border-gray-300 text-gray-700 py-4 rounded-xl font-semibold hover:border-amber-600 hover:text-amber-600 transition-all duration-300">
-                  Schedule Consultation
-                </button>
-              </div> */}
             </div>
           </div>
         </div>

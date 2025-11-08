@@ -5,6 +5,7 @@ import Portfolio from './components/Portfolio';
 import HowItWorks from './components/HowItWorks';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import FloatingButtons from './components/FloatingButtons';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <HowItWorks />
       <Contact />
       <Footer />
+      <FloatingButtons/>
     </div>
   );
 }
