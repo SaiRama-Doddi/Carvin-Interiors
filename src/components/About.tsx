@@ -9,7 +9,7 @@ export default function AboutUs() {
         <div className="md:w-1/3 relative">
           <div className="absolute inset-0 rounded-3xl bg-amber-300 opacity-30 translate-x-4 translate-y-4"></div>
           <img
-            src="https://images.pexels.com/photos/1457847/pexels-photo-1457847.jpeg?auto=compress&cs=tinysrgb&w=1200"
+            src="https://res.cloudinary.com/doqaowoks/image/upload/v1762579181/pexels-rachel-claire-4857757_h7uqr6.jpg"
             alt="Carvin Interiors - Inspiring Spaces"
             className="relative rounded-3xl shadow-2xl w-full object-cover"
           />
