@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { motion } from "framer-motion";
 
 interface Partner {
   name: string;
@@ -37,6 +36,7 @@ const Partners: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const [visibleIndices, setVisibleIndices] = useState<Set<number>>(new Set());
 
   const updateScrollButtons = () => {
     if (!scrollRef.current) return;
@@ -56,18 +56,18 @@ const Partners: React.FC = () => {
 
   useEffect(() => {
     const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
+    if (!scrollContainer || isHovered) return;
 
     let animationId: number;
     let scrollPosition = 0;
 
     const autoScroll = () => {
-      if (!scrollContainer || isHovered) {
+      if (!scrollContainer) {
         animationId = requestAnimationFrame(autoScroll);
         return;
       }
 
-      scrollPosition += 0.5;
+      scrollPosition += 0.3;
       scrollContainer.scrollLeft = scrollPosition;
 
       if (scrollPosition >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
@@ -78,7 +78,6 @@ const Partners: React.FC = () => {
     };
 
     animationId = requestAnimationFrame(autoScroll);
-
     return () => cancelAnimationFrame(animationId);
   }, [isHovered]);
 
@@ -89,30 +88,108 @@ const Partners: React.FC = () => {
     updateScrollButtons();
     scrollContainer.addEventListener("scroll", updateScrollButtons);
 
-    return () => scrollContainer.removeEventListener("scroll", updateScrollButtons);
-  }, []);
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      const newIndices = new Set(visibleIndices);
+      entries.forEach((entry) => {
+        const index = Number((entry.target as HTMLElement).dataset.index);
+        if (entry.isIntersecting) {
+          newIndices.add(index);
+        }
+      });
+      setVisibleIndices(newIndices);
+    };
 
-  const duplicatedPartners = [...partners, ...partners];
+    const observer = new IntersectionObserver(observerCallback, {
+      root: scrollContainer,
+      threshold: 0.1,
+    });
+
+    const items = scrollContainer.querySelectorAll("[data-index]");
+    items.forEach((item) => observer.observe(item));
+
+    return () => {
+      scrollContainer.removeEventListener("scroll", updateScrollButtons);
+      observer.disconnect();
+    };
+  }, [visibleIndices]);
 
   return (
     <section id="partners" className="py-16 px-4 sm:px-8 relative bg-white">
+      <style>{`
+        @keyframes slideIn {
+          from {
+            opacity: 0;
+            transform: translateX(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes scaleIn {
+          from {
+            opacity: 0;
+            transform: scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-8px);
+          }
+        }
+
+        .partner-card-visible {
+          animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .partner-card-hover {
+          animation: float 3s ease-in-out infinite;
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
+
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-3xl md:text-5xl font-extrabold text-amber-600 mb-4">
-         Our Trusted Brands 
-        </h2>
-        <p className="text-lg text-gray-700 mb-12 max-w-5xl mx-auto">
-          We partner with globally recognized brands to bring unmatched quality, innovation, and style to your interiors.
-        </p>
+        <div className="mb-12">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">
+            Trusted Brands We <span className="text-amber-600">Collaborate</span> With
+          </h2>
+          <p className="text-lg text-gray-600 max-w-5xl mx-auto">
+            We partner with globally recognized brands to bring unmatched quality, innovation, and style to your interiors.
+          </p>
+        </div>
 
         <div
-          className="relative"
+          className="relative group"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
           {canScrollLeft && (
             <button
               onClick={() => scroll("left")}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/95 hover:bg-white shadow-lg rounded-full p-3 transition duration-300 hover:scale-110"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/95 hover:bg-amber-50 shadow-lg rounded-full p-3 transition-all duration-300 hover:scale-110 hover:shadow-xl"
               aria-label="Scroll left"
             >
               <ChevronLeft className="w-6 h-6 text-amber-700" />
@@ -122,7 +199,7 @@ const Partners: React.FC = () => {
           {canScrollRight && (
             <button
               onClick={() => scroll("right")}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/95 hover:bg-white shadow-lg rounded-full p-3 transition duration-300 hover:scale-110"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/95 hover:bg-amber-50 shadow-lg rounded-full p-3 transition-all duration-300 hover:scale-110 hover:shadow-xl"
               aria-label="Scroll right"
             >
               <ChevronRight className="w-6 h-6 text-amber-700" />
@@ -131,33 +208,41 @@ const Partners: React.FC = () => {
 
           <div
             ref={scrollRef}
-            className="flex gap-10 overflow-x-auto overflow-y-hidden scrollbar-hide py-6 px-12"
+            className="flex gap-8 overflow-x-auto overflow-y-hidden scrollbar-hide py-8 px-12"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
-            <style>
-              {`.scrollbar-hide::-webkit-scrollbar { display: none; }`}
-            </style>
-
-            {duplicatedPartners.map((partner, index) => (
-              <motion.div
+            {[...partners, ...partners].map((partner, index) => (
+              <div
                 key={index}
-                className="flex flex-col items-center justify-center backdrop-blur-sm rounded-3xl shadow-sm hover:shadow-lg transition-transform duration-300 transform hover:scale-105 cursor-pointer p-6 min-w-[180px] flex-shrink-0 bg-white"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.08 }}
+                data-index={index}
+                className={`flex flex-col items-center justify-center rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 transform hover:scale-110 cursor-pointer p-6 min-w-[180px] flex-shrink-0 bg-gradient-to-br from-white to-gray-50 border border-gray-100 hover:border-amber-200 ${
+                  visibleIndices.has(index) ? "partner-card-visible" : "opacity-0"
+                } ${isHovered ? "partner-card-hover" : ""}`}
               >
-                <img
-                  src={partner.logo}
-                  alt={partner.name}
-                  className="w-28 h-28 object-contain mb-4"
-                  loading="lazy"
-                />
-                <p className="font-semibold text-gray-800 text-sm">{partner.name}</p>
+                <div className="relative w-28 h-28 flex items-center justify-center mb-4 group/image">
+                  <div className="absolute inset-0 bg-gradient-to-r from-amber-200/20 to-orange-200/20 rounded-full opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 blur-lg"></div>
+                  <img
+                    src={partner.logo}
+                    alt={partner.name}
+                    className="w-24 h-24 object-contain relative z-10 transition-transform duration-300 group-hover/image:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+                <p className="font-semibold text-gray-800 text-sm text-center">{partner.name}</p>
                 <p className="text-xs text-gray-500 mt-1">{partner.category}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
+        </div>
+
+        <div className="mt-8 flex justify-center gap-2">
+          {[0, 1, 2, 3].map((dot) => (
+            <div
+              key={dot}
+              className="h-2 rounded-full bg-gray-300 transition-all duration-300 hover:bg-amber-600"
+              style={{ width: dot === 0 ? "24px" : "8px" }}
+            />
+          ))}
         </div>
       </div>
     </section>
