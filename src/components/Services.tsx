@@ -68,7 +68,7 @@ const Services = () => {
         </div>
 
         {/* Service Cards */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {services.map((service) => {
             const IconComponent = iconMap[service.icon] || Layers; // fallback
 
