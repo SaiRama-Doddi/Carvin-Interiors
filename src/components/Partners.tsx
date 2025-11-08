@@ -174,11 +174,12 @@ const Partners: React.FC = () => {
       <div className="max-w-7xl mx-auto text-center">
         <div className="mb-12">
           <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">
-            Trusted Brands We <span className="text-amber-600">Collaborate</span> With
+            Our  <span className="text-amber-600">Trusted Brands</span> 
           </h2>
-          <p className="text-lg text-gray-600 max-w-5xl mx-auto">
-            We partner with globally recognized brands to bring unmatched quality, innovation, and style to your interiors.
-          </p>
+         <p className="text-lg text-gray-600 max-w-5xl mx-auto">
+  At Carvin Interiors, we proudly align ourselves with industry-leading brands to ensure every project benefits from the finest materials, innovative technology, and sustainable practices. 
+</p>
+
         </div>
 
         <div
