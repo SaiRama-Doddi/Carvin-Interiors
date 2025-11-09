@@ -54,9 +54,9 @@ export const services = [
     ],
     images: [
       'https://res.cloudinary.com/doqaowoks/image/upload/v1762579181/pexels-rachel-claire-4857757_h7uqr6.jpg',
-      'https://images.pexels.com/photos/1170412/pexels-photo-1170412.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/2467285/pexels-photo-2467285.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://res.cloudinary.com/doqaowoks/image/upload/v1762663521/commericial2_s3asxj.jpg',
+      'https://res.cloudinary.com/doqaowoks/image/upload/v1762663521/commericial3_m6inhl.webp',
+      'https://res.cloudinary.com/doqaowoks/image/upload/v1762663520/commericial1_ioskx8.avif'
     ]
   },
   {
@@ -84,9 +84,9 @@ export const services = [
     ],
     images: [
       'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/2121121/pexels-photo-2121121.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://res.cloudinary.com/doqaowoks/image/upload/v1762663643/luxury1_flhxwc.jpg',
+      'https://res.cloudinary.com/doqaowoks/image/upload/v1762663643/luxury2_turxf7.jpg',
+      'https://res.cloudinary.com/doqaowoks/image/upload/v1762663644/luxury3_ud2hxu.webp'
     ]
   },
   {
@@ -113,10 +113,10 @@ export const services = [
       }
     ],
     images: [
-      'https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/271815/pexels-photo-271815.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1599791/pexels-photo-1599791.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/534151/pexels-photo-534151.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://res.cloudinary.com/doqaowoks/image/upload/v1762663795/space1_bstlps.jpg',
+      'https://res.cloudinary.com/doqaowoks/image/upload/v1762663795/space4_fzhcrp.jpg',
+      'https://res.cloudinary.com/doqaowoks/image/upload/v1762663796/space3_euco2t.jpg',
+      'https://res.cloudinary.com/doqaowoks/image/upload/v1762663796/space2_oj2n4k.jpg'
     ]
   },
   {
@@ -143,8 +143,8 @@ export const services = [
       }
     ],
     images: [
-      'https://images.pexels.com/photos/1109541/pexels-photo-1109541.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1571453/pexels-photo-1571453.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://res.cloudinary.com/doqaowoks/image/upload/v1762664029/color1_dqqqim.jpg',
+      'https://res.cloudinary.com/doqaowoks/image/upload/v1762664031/color2_y2rkzi.jpg',
       'https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&w=800',
       'https://images.pexels.com/photos/1329711/pexels-photo-1329711.jpeg?auto=compress&cs=tinysrgb&w=800'
     ]
@@ -203,10 +203,10 @@ export const services = [
       }
     ],
     images: [
-      'https://images.pexels.com/photos/3843287/pexels-photo-3843287.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/949942/pexels-photo-949942.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/848616/pexels-photo-848616.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/3756372/pexels-photo-3756372.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://res.cloudinary.com/doqaowoks/image/upload/v1762663237/epoxy2_kglfzu.png',
+      'https://res.cloudinary.com/doqaowoks/image/upload/v1762662883/epoxy1_aupqcs.jpg',
+      'https://res.cloudinary.com/doqaowoks/image/upload/v1762664030/epoxy4_p6tm15.jpg',
+      'https://res.cloudinary.com/doqaowoks/image/upload/v1762664030/epoxy3_qrppti.jpg'
     ]
   },
   {
@@ -233,10 +233,10 @@ export const services = [
       }
     ],
     images: [
-      'https://images.pexels.com/photos/1573826/pexels-photo-1573826.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1573827/pexels-photo-1573827.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1669754/pexels-photo-1669754.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/208147/pexels-photo-208147.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://res.cloudinary.com/doqaowoks/image/upload/v1762662231/painting1_uzrokh.webp',
+      'https://res.cloudinary.com/doqaowoks/image/upload/v1762662231/painting2_yqfkcv.jpg',
+      'https://res.cloudinary.com/doqaowoks/image/upload/v1762662231/painting3_ums2uj.jpg',
+      'https://res.cloudinary.com/doqaowoks/image/upload/v1762662411/painting4_cqc3t8.jpg'
     ]
   },
   {
@@ -263,10 +263,10 @@ export const services = [
       }
     ],
     images: [
-      'https://images.pexels.com/photos/1457841/pexels-photo-1457841.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/333591/pexels-photo-333591.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1457844/pexels-photo-1457844.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/534172/pexels-photo-534172.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://res.cloudinary.com/doqaowoks/image/upload/v1762664321/ceiling5_fxjxdo.jpg',
+      'https://res.cloudinary.com/doqaowoks/image/upload/v1762664321/ceiling6_d89fjs.avif',
+      'https://res.cloudinary.com/doqaowoks/image/upload/v1762664323/ceiling7_tiucol.webp',
+      'https://res.cloudinary.com/doqaowoks/image/upload/v1762662637/ceiling4_dy3cgm.webp'
     ]
   }
 ];
