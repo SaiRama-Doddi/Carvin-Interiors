@@ -45,7 +45,7 @@ export default function Testimonials() {
 
   const scroll = (direction: "left" | "right") => {
     if (!scrollRef.current) return;
-    const { scrollLeft, clientWidth } = scrollRef.current;
+    const { scrollLeft } = scrollRef.current;
     const cardWidth = 340;
     const scrollAmount = direction === "left" ? -cardWidth : cardWidth;
     scrollRef.current.scrollTo({
