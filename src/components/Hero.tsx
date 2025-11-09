@@ -26,6 +26,14 @@ const slides = [
     subtitle: "Work smart, live beautifully",
     buttonText: "Get Started",
   },
+  {
+    id: 4,
+    image:
+      "https://res.cloudinary.com/doqaowoks/image/upload/v1762664629/epoxy5_hk3hrj.jpg",
+    title: "Epoxy Flooring Solutions",
+    subtitle: "Durable and Stylish Floors for Every Space",
+    buttonText: "Discover More",
+  },
 ];
 
 
