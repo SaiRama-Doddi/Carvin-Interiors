@@ -94,7 +94,7 @@ const Hero = () => {
       target.scrollIntoView({ behavior: "smooth" });
     }
   }}
-              className="inline-flex items-center space-x-2 bg-gradient-to-r from-orange-800 to-orange-500 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:scale-105 transition-all">
+              className="cursor-pointer inline-flex items-center space-x-2 bg-gradient-to-r from-orange-800 to-orange-500 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:scale-105 transition-all">
                 <span>{slide.buttonText}</span>
                 <ArrowRight size={20} />
               </button>

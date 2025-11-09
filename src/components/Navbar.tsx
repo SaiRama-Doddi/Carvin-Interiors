@@ -17,6 +17,8 @@ const Navbar = () => {
     { id: 'services', label: 'Services' },
     { id: 'portfolio', label: 'Portfolio' },
     { id: 'how-it-works', label: 'How It Works' },
+      { id: 'testimonials', label: 'Testinomials' },
+
   
   ];
 
@@ -30,12 +32,12 @@ const Navbar = () => {
             </h1>
           </div>
 
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex space-x-8 ">
             {navLinks.map((link) => (
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className="text-gray-700 hover:text-amber-600 transition-colors duration-300 font-medium"
+                className="text-gray-700 hover:text-amber-600 transition-colors duration-300 font-medium cursor-pointer"
               >
                 {link.label}
               </button>
@@ -45,7 +47,7 @@ const Navbar = () => {
           <div className="hidden md:block">
             <button
               onClick={() => scrollToSection('contact')}
-              className="bg-amber-600 text-white px-6 py-2.5 rounded-lg hover:bg-amber-700 transition-colors duration-300 font-medium"
+              className="bg-amber-600 cursor-pointer text-white px-6 py-2.5 rounded-lg hover:bg-amber-700 transition-colors duration-300 font-medium"
             >
               Get Started
             </button>

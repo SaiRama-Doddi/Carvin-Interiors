@@ -76,14 +76,21 @@ const HowItWorks = () => {
               </ul>
             </div>
            <div className="flex justify-center md:justify-end">
+
+
+              <a
+          href="#contact"
+          className="inline-block bg-white text-amber-700 font-bold px-8 py-3 rounded-lg shadow-lg hover:bg-amber-100 hover:text-amber-800 transition-colors"
+        >
   <button
     onClick={() =>
       (window.location.href = "mailto:carvinginteriors@gmail.com?subject=Consultation%20Request&body=Hi%20Carving%20Interiors,%0D%0A%0DI’d%20like%20to%20schedule%20a%20consultation.%0D%0A%0D%0AThank%20you!")
     }
-    className="bg-white text-amber-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors duration-300 font-medium text-lg shadow-xl"
+    className=" px-8 py-4 rounded-l transition-colors cursor-pointer duration-300 font-medium text-lg "
   >
     Schedule Consultation
   </button>
+  </a>
 </div>
 
           </div>

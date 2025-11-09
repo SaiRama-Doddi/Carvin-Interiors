@@ -236,7 +236,7 @@ const Partners: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-8 flex justify-center gap-2">
+       {/*  <div className="mt-8 flex justify-center gap-2">
           {[0, 1, 2, 3].map((dot) => (
             <div
               key={dot}
@@ -244,7 +244,7 @@ const Partners: React.FC = () => {
               style={{ width: dot === 0 ? "24px" : "8px" }}
             />
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );

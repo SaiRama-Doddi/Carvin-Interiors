@@ -58,7 +58,7 @@ export default function AboutUs() {
       </div>
 
       {/* Call to Action */}
-      <div className="max-w-4xl mx-auto mt-24 rounded-3xl shadow-2xl bg-amber-700 p-12 text-white text-center">
+     {/*  <div className="max-w-4xl mx-auto mt-24 rounded-3xl shadow-2xl bg-amber-700 p-12 text-white text-center">
         <h3 className="text-3xl font-bold mb-4">Step Into Your Dream Space</h3>
         <p className="text-lg mb-8 leading-relaxed text-[#FFFAF0]">
           Your space deserves a story that is as unique as you are. Reach out to Carvin Interiors today — let’s collaborate to create interiors that excite, comfort, and inspire. We’re ready to turn your dream home or office into a beautiful reality.
@@ -69,7 +69,7 @@ export default function AboutUs() {
         >
           Schedule a Consultation
         </a>
-      </div>
+      </div> */}
     </section>
   );
 }

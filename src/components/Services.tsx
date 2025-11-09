@@ -114,7 +114,7 @@ const toggleFeature = (serviceId: number, index: number) => {
                     {service.features.map((feature, index) => (
                       <div
                         key={index}
-                        className="bg-gray-50 px-4 py-2 rounded-lg text-sm text-gray-700 font-medium text-center hover:bg-amber-50 hover:text-amber-700 transition-colors duration-300"
+                        className="flex items-center justify-center bg-gray-50 h-20 rounded-lg text-sm text-gray-700 font-medium text-center hover:bg-amber-50 hover:text-amber-700 transition-colors duration-300"
                       >
                         {feature.name}
                       </div>
@@ -123,7 +123,7 @@ const toggleFeature = (serviceId: number, index: number) => {
 
                   <button
                     onClick={() => handleLearnMore(service.id)}
-                    className="w-full bg-gradient-to-r from-amber-600 to-orange-600 text-white py-3 rounded-xl font-semibold hover:from-amber-700 hover:to-orange-700 transition-all duration-300 shadow-md hover:shadow-xl transform hover:-translate-y-0.5"
+                    className="cursor-pointer w-full bg-gradient-to-r from-amber-600 to-orange-600 text-white py-3 rounded-xl font-semibold hover:from-amber-700 hover:to-orange-700 transition-all duration-300 shadow-md hover:shadow-xl transform hover:-translate-y-0.5"
                   >
                     View Gallery & Learn More
                   </button>
@@ -197,14 +197,18 @@ const toggleFeature = (serviceId: number, index: number) => {
                   );
                 })()}
 
-                <div>
-                  <h3 className="text-4xl font-bold text-gray-900 mb-3">
-                    {selectedServiceData.title}
-                  </h3>
-                  <p className="text-xl text-gray-600 leading-relaxed">
-                    {selectedServiceData.description}
-                  </p>
-                </div>
+               <div>
+  {/* Service Title */}
+  <h3 className="text-lg sm:text-xl md:text-3xl font-bold text-gray-900 mb-3">
+    {selectedServiceData.title}
+  </h3>
+
+  {/* Service Description */}
+  <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">
+    {selectedServiceData.description}
+  </p>
+</div>
+
               </div>
 
        <div className="border-t border-gray-200 pt-8">
@@ -234,9 +238,9 @@ const toggleFeature = (serviceId: number, index: number) => {
           </div>
 
           {isOpen ? (
-            <ChevronUp className="text-amber-600" size={20} />
+            <ChevronUp className="text-amber-600 cursor-pointer" size={20} />
           ) : (
-            <ChevronDown className="text-amber-600" size={20} />
+            <ChevronDown className="text-amber-600 cursor-pointer" size={20} />
           )}
         </button>
 

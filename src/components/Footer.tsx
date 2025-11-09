@@ -104,15 +104,15 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start space-x-3">
                 <MapPin size={20} className="text-amber-600 flex-shrink-0 mt-1" />
-                <span>123 Design Street<br />New York, NY 10001</span>
+                <span>Flat-202, Vijaya Durga Towers, Mahatma Gandhi Inner Ring Rd, Reddypalem Guntur, Andhra Pradesh 522509</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone size={20} className="text-amber-600 flex-shrink-0" />
-                <span>+91 95810 55328</span>
+                <span>+91 9398360804</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail size={20} className="text-amber-600 flex-shrink-0" />
-                <span>info@cravininteriors.com</span>
+                <span>carvininteriors@gmail.com</span>
               </li>
             </ul>
           </div>
