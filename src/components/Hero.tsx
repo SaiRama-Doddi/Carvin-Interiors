@@ -9,6 +9,7 @@ const slides = [
     title: "Modern Living Spaces",
     subtitle: "Designs that Inspire Everyday Life",
     buttonText: "Explore Designs",
+      targetId: "services", // scroll to Services
   },
   {
     id: 2,
@@ -17,6 +18,8 @@ const slides = [
     title: "Elegant Interiors",
     subtitle: "Turning your vision into aesthetic reality",
     buttonText: "View Portfolio",
+    targetId: "portfolio", // scroll to Portfolio
+
   },
   {
     id: 3,
@@ -25,6 +28,7 @@ const slides = [
     title: "Creative Workspaces",
     subtitle: "Work smart, live beautifully",
     buttonText: "Get Started",
+     targetId: "home", // scroll to Home
   },
   {
     id: 4,
@@ -33,6 +37,7 @@ const slides = [
     title: "Epoxy Flooring Solutions",
     subtitle: "Durable and Stylish Floors for Every Space",
     buttonText: "Discover More",
+    targetId: "how-it-works", // scroll to How It Works
   },
 ];
 
@@ -81,7 +86,15 @@ const Hero = () => {
               <p className="text-base md:text-lg lg:text-xl text-slate-100 mb-8 max-w-2xl">
                 {slide.subtitle}
               </p>
-              <button className="inline-flex items-center space-x-2 bg-gradient-to-r from-orange-800 to-orange-500 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:scale-105 transition-all">
+              <button 
+              
+              onClick={() => {
+    const target = document.getElementById(slide.targetId);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+              className="inline-flex items-center space-x-2 bg-gradient-to-r from-orange-800 to-orange-500 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:scale-105 transition-all">
                 <span>{slide.buttonText}</span>
                 <ArrowRight size={20} />
               </button>

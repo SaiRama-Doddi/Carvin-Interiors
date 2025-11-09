@@ -210,7 +210,7 @@ const toggleFeature = (serviceId: number, index: number) => {
        <div className="border-t border-gray-200 pt-8">
   <h4 className="text-2xl font-bold text-gray-900 mb-6">What's Included</h4>
 
-<div className="grid grid-cols-2 sm:grid-cols-1 gap-4 md:gap-6">
+<div className="grid grid-cols-1 sm:grid-cols-1 gap-4 md:gap-6">
   {selectedServiceData.features.map((feature, index) => {
     const serviceId = selectedServiceData.id;
     const isOpen = openFeatureByService[serviceId] === index;
