@@ -55,7 +55,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => scrollToSection('home')}
-                  className="hover:text-amber-600 transition-colors duration-300"
+                  className="hover:text-amber-600 transition-colors duration-300 cursor-pointer"
                 >
                   Home
                 </button>
@@ -63,7 +63,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => scrollToSection('services')}
-                  className="hover:text-amber-600 transition-colors duration-300"
+                  className="hover:text-amber-600 transition-colors duration-300 cursor-pointer"
                 >
                   Services
                 </button>
@@ -71,7 +71,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => scrollToSection('portfolio')}
-                  className="hover:text-amber-600 transition-colors duration-300"
+                  className="hover:text-amber-600 transition-colors duration-300 cursor-pointer"
                 >
                   Portfolio
                 </button>
@@ -82,6 +82,14 @@ const Footer = () => {
                   className="hover:text-amber-600 transition-colors duration-300"
                 >
                   How It Works
+                </button>
+              </li>
+                <li>
+                <button
+                  onClick={() => scrollToSection('testimonials')}
+                  className="hover:text-amber-600 transition-colors duration-300"
+                >
+                 Testimonials
                 </button>
               </li>
             </ul>
