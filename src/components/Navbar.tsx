@@ -1,49 +1,85 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
 
+  const navLinks = [
+    { id: 'hero', label: 'Home' },
+    { id: 'services', label: 'Services' },
+    { id: 'portfolio', label: 'Portfolio' },
+    { id: 'how-it-works', label: 'How It Works' },
+    { id: 'testimonials', label: 'Testimonials' },
+  ];
+
+  // Smooth scroll to section
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      setActiveSection(id);
       setIsOpen(false);
     }
   };
 
-  const navLinks = [
-    { id: 'home', label: 'Home' },
-    { id: 'services', label: 'Services' },
-    { id: 'portfolio', label: 'Portfolio' },
-    { id: 'how-it-works', label: 'How It Works' },
-      { id: 'testimonials', label: 'Testinomials' },
+  // Detect active section on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const offset = 120; // adjust based on navbar height
 
-  
-  ];
+      for (const link of navLinks) {
+        const section = document.getElementById(link.id);
+        if (section) {
+          const sectionTop = section.offsetTop - offset;
+          const sectionHeight = section.offsetHeight;
+
+          if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+            setActiveSection(link.id);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <nav className="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
+          {/* Logo */}
           <div className="flex-shrink-0">
             <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
               Carvin <span className="text-amber-600">Interiors</span>
             </h1>
           </div>
 
-          <div className="hidden md:flex space-x-8 ">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex space-x-8">
             {navLinks.map((link) => (
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className="text-gray-700 hover:text-amber-600 transition-colors duration-300 font-medium cursor-pointer"
+                className={`relative font-medium cursor-pointer transition-colors duration-300
+                  ${
+                    activeSection === link.id
+                      ? 'text-amber-600'
+                      : 'text-gray-700 hover:text-amber-600'
+                  }`}
               >
                 {link.label}
+                {activeSection === link.id && (
+                  <span className="absolute left-0 bottom-[-6px] w-full h-[2px] bg-amber-600 rounded-full transition-all duration-300"></span>
+                )}
               </button>
             ))}
           </div>
 
+          {/* Get Started Button */}
           <div className="hidden md:block">
             <button
               onClick={() => scrollToSection('contact')}
@@ -53,6 +89,7 @@ const Navbar = () => {
             </button>
           </div>
 
+          {/* Mobile Menu Toggle */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -64,6 +101,7 @@ const Navbar = () => {
         </div>
       </div>
 
+      {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-white border-t">
           <div className="px-2 pt-2 pb-3 space-y-1">
@@ -71,11 +109,17 @@ const Navbar = () => {
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className="block w-full text-left px-3 py-2 text-gray-700 hover:bg-amber-50 hover:text-amber-600 rounded-md transition-colors"
+                className={`block w-full text-left px-3 py-2 rounded-md font-medium transition-colors
+                  ${
+                    activeSection === link.id
+                      ? 'bg-amber-50 text-amber-600'
+                      : 'text-gray-700 hover:bg-amber-50 hover:text-amber-600'
+                  }`}
               >
                 {link.label}
               </button>
             ))}
+
             <button
               onClick={() => scrollToSection('contact')}
               className="block w-full text-left px-3 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 transition-colors font-medium mt-2"

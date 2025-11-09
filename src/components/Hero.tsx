@@ -5,7 +5,7 @@ const slides = [
   {
     id: 1,
     image:
-      "https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=1920",
+      "https://res.cloudinary.com/doqaowoks/image/upload/v1762678274/living_room_fdrdmj.png",
     title: "Modern Living Spaces",
     subtitle: "Designs that Inspire Everyday Life",
     buttonText: "Explore Designs",
@@ -28,7 +28,7 @@ const slides = [
     title: "Creative Workspaces",
     subtitle: "Work smart, live beautifully",
     buttonText: "Get Started",
-     targetId: "home", // scroll to Home
+     targetId: "services", // scroll to Home
   },
   {
     id: 4,
@@ -63,7 +63,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative w-full h-[85vh] overflow-hidden bg-slate-50">
+    <section className="relative w-full h-[85vh] overflow-hidden bg-slate-50" id="hero">
       {/* Carousel Images */}
       <div className="relative w-full h-full">
         {slides.map((slide, index) => (
