@@ -84,7 +84,7 @@ const HowItWorks = () => {
         >
   <button
     onClick={() =>
-      (window.location.href = "mailto:carvinginteriors@gmail.com?subject=Consultation%20Request&body=Hi%20Carving%20Interiors,%0D%0A%0DI’d%20like%20to%20schedule%20a%20consultation.%0D%0A%0D%0AThank%20you!")
+      (window.location.href = "mailto:carvininteriors@gmail.com?subject=Consultation%20Request&body=Hi%20Carving%20Interiors,%0D%0A%0DI’d%20like%20to%20schedule%20a%20consultation.%0D%0A%0D%0AThank%20you!")
     }
     className=" px-8 py-4 rounded-l transition-colors cursor-pointer duration-300 font-medium text-lg "
   >

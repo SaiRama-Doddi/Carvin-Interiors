@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,15 +12,34 @@ const Contact = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = async (e: FormEvent) => {
+const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      phone: formData.phone || 'Not provided',
+      service: formData.service,
+      message: formData.message,
+      to_email: 'carvininteriors@gmail.com'
+    };
 
-    alert('Thank you for your inquiry! We will get back to you soon.');
-    setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+    try {
+      await emailjs.send(
+        'YOUR_SERVICE_ID',   // 🔹 Replace with your EmailJS service ID
+        'YOUR_TEMPLATE_ID',  // 🔹 Replace with your EmailJS template ID
+        templateParams,
+        'YOUR_PUBLIC_KEY'    // 🔹 Replace with your EmailJS public key
+      );
+
+      alert('✅ Message sent successfully! We will get back to you soon.');
+      setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      alert('❌ Failed to send message. Please try again later.');
+    }
+
     setIsSubmitting(false);
   };
 
