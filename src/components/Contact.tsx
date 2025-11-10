@@ -12,13 +12,14 @@ const Contact = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-const handleSubmit = async (e: FormEvent) => {
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     const templateParams = {
-      from_name: formData.name,
-      from_email: formData.email,
+      formm_name: formData.name,
+      form_email: formData.email,
       phone: formData.phone || 'Not provided',
       service: formData.service,
       message: formData.message,
@@ -26,13 +27,13 @@ const handleSubmit = async (e: FormEvent) => {
     };
 
     try {
-     await emailjs.send(
-  import.meta.env.VITE_EMAILJS_SERVICE_ID,
-  import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-  templateParams,
-  import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-);
-
+      // Send email via EmailJS using environment variables
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
 
       alert('✅ Message sent successfully! We will get back to you soon.');
       setFormData({ name: '', email: '', phone: '', service: '', message: '' });
@@ -44,7 +45,9 @@ const handleSubmit = async (e: FormEvent) => {
     setIsSubmitting(false);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -55,20 +58,17 @@ const handleSubmit = async (e: FormEvent) => {
     <section id="contact" className="py-24 bg-gradient-to-br from-gray-50 to-amber-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Get In Touch
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Get In Touch</h2>
           <p className="text-xl text-gray-600">
             Ready to transform your space? Let's start the conversation
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
+          {/* Left Info Section */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Let's Create Something Beautiful
-              </h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Let's Create Something Beautiful</h3>
               <p className="text-gray-600 leading-relaxed mb-8">
                 Whether you're looking to renovate your home or design a new space from scratch,
                 our team is here to bring your vision to life. Get in touch with us today for a
@@ -76,6 +76,7 @@ const handleSubmit = async (e: FormEvent) => {
               </p>
             </div>
 
+            {/* Contact Details */}
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
                 <div className="bg-amber-100 p-3 rounded-lg flex-shrink-0">
@@ -95,7 +96,6 @@ const handleSubmit = async (e: FormEvent) => {
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
                   <p className="text-gray-600">carvininteriors@gmail.com</p>
-                  
                 </div>
               </div>
 
@@ -105,31 +105,15 @@ const handleSubmit = async (e: FormEvent) => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">Office</h4>
-                  <p className="text-gray-600">Flat-202, Vijaya Durga Towers, Mahatma Gandhi Inner Ring Rd, Reddypalem
-                 Guntur, Andhra Pradesh 522509</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white p-6 rounded-xl shadow-lg border-2 border-amber-100">
-              <h4 className="font-bold text-gray-900 mb-3">Business Hours</h4>
-              <div className="space-y-2 text-gray-600">
-                <div className="flex justify-between">
-                  <span>Monday - Friday</span>
-                  <span className="font-medium">9:00 AM - 6:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Saturday</span>
-                  <span className="font-medium">10:00 AM - 4:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Sunday</span>
-                  <span className="font-medium">Closed</span>
+                  <p className="text-gray-600">
+                    Flat-202, Vijaya Durga Towers, Mahatma Gandhi Inner Ring Rd, Reddypalem, Guntur, Andhra Pradesh 522509
+                  </p>
                 </div>
               </div>
             </div>
           </div>
 
+          {/* Contact Form Section */}
           <div className="bg-white rounded-2xl shadow-xl p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -176,7 +160,7 @@ const handleSubmit = async (e: FormEvent) => {
                     value={formData.phone}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-amber-600 focus:outline-none transition-colors"
-                    placeholder="+1 (555) 000-0000"
+                    placeholder="+91 9398360804"
                   />
                 </div>
               </div>
