@@ -52,12 +52,26 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
-              Carvin <span className="text-amber-600">Interiors</span>
-            </h1>
-          </div>
+          {/* Logo Section */}
+        <div className="flex items-center space-x-0">
+          <img
+            src="/logo.png"
+            alt="Inizio Interiors Logo"
+            className="w-28 sm:w-32 md:w-32 h-auto object-contain -my-2"
+          />
 
+          <div className="flex flex-col leading-none ml-[-4px] whitespace-nowrap">
+            <span
+              className="text-lg sm:text-xl md:text-2xl font-semibold  text-[#362C59]"
+             /*  style={{
+                fontFamily: "'Playfair Display', serif",
+                letterSpacing: "1px",
+              }} */
+            >
+              Carvin <span className='text-amber-600'>Interiors</span> 
+            </span>
+          </div>
+        </div>
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
             {navLinks.map((link) => (
