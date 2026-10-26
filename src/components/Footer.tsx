@@ -112,15 +112,24 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start space-x-3">
                 <MapPin size={20} className="text-amber-600 flex-shrink-0 mt-1" />
-                <span>Flat-202, Vijaya Durga Towers, Mahatma Gandhi Inner Ring Rd, Reddypalem Guntur, Andhra Pradesh 522509</span>
+                <span>FLAT NO - 404, Bandla Enclave, Gorantla, Guntur, Gorantla, Andhra Pradesh 522034</span>
               </li>
-              <li className="flex items-center space-x-3">
-                <Phone size={20} className="text-amber-600 flex-shrink-0" />
-                <span>+91 9398360804</span>
+              <li className="flex items-start space-x-3">
+                <Phone size={20} className="text-amber-600 flex-shrink-0 mt-1" />
+                <div className="flex flex-col space-y-1">
+                  <a href="tel:+919398360804" className="hover:text-amber-600 transition-colors">
+                    +91 9398360804
+                  </a>
+                  <a href="tel:+919502353579" className="hover:text-amber-600 transition-colors">
+                    +91 9502353579
+                  </a>
+                </div>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail size={20} className="text-amber-600 flex-shrink-0" />
-                <span>carvininteriors@gmail.com</span>
+                <a href="mailto:carvininteriors@gmail.com" className="hover:text-amber-600 transition-colors">
+                  carvininteriors@gmail.com
+                </a>
               </li>
             </ul>
           </div>

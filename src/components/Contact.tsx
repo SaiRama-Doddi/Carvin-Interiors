@@ -84,8 +84,17 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
-                  <p className="text-gray-600">+91 9398360804</p>
-                  <p className="text-gray-600">Mon-Fri: 9AM - 6PM</p>
+                  <p className="text-gray-600">
+                    <a href="tel:+919398360804" className="hover:text-amber-600 transition-colors">
+                      +91 9398360804
+                    </a>
+                  </p>
+                  <p className="text-gray-600">
+                    <a href="tel:+919502353579" className="hover:text-amber-600 transition-colors">
+                      +91 9502353579
+                    </a>
+                  </p>
+                  <p className="text-gray-500 text-sm mt-1">Mon-Fri: 9AM - 6PM</p>
                 </div>
               </div>
 
@@ -95,7 +104,11 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
-                  <p className="text-gray-600">carvininteriors@gmail.com</p>
+                  <p className="text-gray-600">
+                    <a href="mailto:carvininteriors@gmail.com" className="hover:text-amber-600 transition-colors">
+                      carvininteriors@gmail.com
+                    </a>
+                  </p>
                 </div>
               </div>
 
@@ -106,7 +119,7 @@ const Contact = () => {
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">Office</h4>
                   <p className="text-gray-600">
-                    Flat-202, Vijaya Durga Towers, Mahatma Gandhi Inner Ring Rd, Reddypalem, Guntur, Andhra Pradesh 522509
+                    FLAT NO - 404, Bandla Enclave, Gorantla, Guntur, Gorantla, Andhra Pradesh 522034
                   </p>
                 </div>
               </div>
